@@ -1,0 +1,45 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Employee </h3>
+    <form #f='ngForm' (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Book Id</label>
+            <input type="number" class ="form-control" id = "bookId"
+                [(ngModel)] = "book.bookId" name = "bookId" 
+                #bid="ngModel"
+                required />
+        </div>
+        <div [hidden]="bid.valid || bid.pristine">
+            <b>BookId is Required</b>
+        </div>
+    
+        <div class="form-group">
+            <label> Book Name</label>
+            <input type="text" class ="form-control" id = "bookName"
+                [(ngModel)] = "book.bookName" name = "bookName" 
+                minlength="4" 
+                required
+                #bn="ngModel"/>
+        </div>
+        <div [hidden]="bn.valid || bn.pristine">
+            <b>BookName is required and should be minimum 4 char long</b>
+        </div>
+    
+        <div class="form-group">
+            <label> Book Author</label>
+            <input type="text" class ="form-control" id = "bookAuthor"
+                [(ngModel)] = "book.bookAuthor" name = "bookAuthor" maxlength="20" 
+                required
+                minlength="4"
+                #bauth="ngModel"/>
+        </div>
+        <div [hidden]="bauth.valid || bauth.pristine">
+            <b>BookAuthor is Required and should be minimum 4 char long</b>
+        </div>
+    
+        <input type ="submit" class="btn btn-success"  
+        [disabled]="f.invalid"
+        value="Submit"/>
+        <br><br>
+    </form>
+    </div> 

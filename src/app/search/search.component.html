@@ -1,0 +1,23 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Search Book </h3>
+        <div class="form-group">
+            <label> Search By Book Name</label>
+            <input type="text" class="form-control" placeholder="Type to search" [(ngModel)]="data">
+        </div><br>    
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"> Book Id</th>
+                    <th scope="col"> Book Name </th>
+                    <th scope="col"> Book Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let book of books | filter:data" >
+                    <td> {{ book.bookId }} </td>
+                    <td> {{ book.bookName }} </td>
+                    <td> {{ book.bookAuthor }} </td>
+                </tr>
+            </tbody>
+        </table>
+</div> 
